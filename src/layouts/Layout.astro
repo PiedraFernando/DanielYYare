@@ -32,6 +32,12 @@ import DressCode from '../components/dressCode.astro';
         </button>
       </div>
     </div>
+      <style>
+        #welcomeModal.fade-out {
+          transition: opacity 0.7s ease;
+          opacity: 0;
+        }
+      </style>
 
     <!-- Audio -->
     <audio id="backgroundMusic" loop>
@@ -50,17 +56,23 @@ import DressCode from '../components/dressCode.astro';
     </main>
 
     <script>
-      const modal = document.getElementById('welcomeModal');
-      const closeBtn = document.getElementById('closeModal');
-      const viewInvitationBtn = document.getElementById('viewInvitation');
-      const music = document.getElementById('backgroundMusic') as HTMLAudioElement;
+        const modal = document.getElementById('welcomeModal');
+        const viewInvitationBtn = document.getElementById('viewInvitation');
+        const music = document.getElementById('backgroundMusic');
 
-      function closeModalAndPlayMusic() {
-        modal?.classList.add('hidden');
-        music?.play().catch(err => console.log('Error al reproducir música:', err));
-      }
+        function closeModalAndPlayMusic() {
+          if (modal) {
+            modal.classList.add('fade-out');
+            setTimeout(() => {
+              modal.classList.add('hidden');
+            }, 700);
+          }
+          if (music) {
+            music.play().catch(err => console.log('Error al reproducir música:', err));
+          }
+        }
 
-      viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
+        viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
     </script>
   </body>
 </html>
