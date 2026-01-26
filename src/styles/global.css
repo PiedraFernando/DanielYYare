@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Monsieur+La+Doulaise&family=Mr+De+Haviland&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-baskervville: 'Montserrat';
+}
+
+body{
+  font-family: "Cormorant", serif;
+  color: rgb(84, 89, 95);
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+.alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Clase dinámica para Cormorant */
+.cormorant {
+  font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--cormorant-weight, 400);
+  font-style: normal;
+}
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Clase dinámica para Bodoni Moda */
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--bodoni-weight, 400);
+  font-style: normal;
+}
+
+.mr-de-haviland-regular {
+  font-family: "Mr De Haviland", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-primary {
+  color: rgb(84, 89, 95); /* Ejemplo de color personalizado */
+}
+.text-secondary {
+  color: rgb(122, 69, 143) /* Ejemplo de color personalizado */
+}

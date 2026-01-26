@@ -1,0 +1,66 @@
+---
+// Este es el diseño base que incluye los componentes principales
+import Home from '../components/home.astro';
+import Frase from '../components/frase.astro';
+import Fathers from '../components/fathers.astro';
+import DateCounter from '../components/dateCounter.astro';
+import '../styles/global.css';
+import Ubication from '../components/ubication.astro';
+import DressCode from '../components/dressCode.astro';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boda Daniel y Yareli</title>
+    <link rel="icon" type="image/png" href="/anillos.png" />
+  </head>
+
+  <body class="">
+    <!-- Modal de bienvenida -->
+    <div id="welcomeModal" class="fixed inset-0 bg-[url('/background.jpg')] bg-cover bg-center flex items-center justify-center z-50">
+      <div class="bg-[url('/bg1.png')] bg-cover bg-center relative w-full max-w-4xl mx-4 rounded-lg shadow-2xl py-20 px-12 flex flex-col items-center justify-center min-h-[600px]">
+        <!-- Contenido -->
+        <h1 class="text-[80px] md:text-[120px] text-secondary alex-brush-regular mb-[-20px]">Yarely</h1>
+        <h1 class="text-[40px] md:text-[50px] monsieur-la-doulaise-regular">y</h1>
+        <h1 class="text-[80px] md:text-[120px] text-secondary alex-brush-regular mb-8">Daniel</h1>
+
+        <!-- Botón ver invitación -->
+        <button id="viewInvitation" class="bg-[#617248] text-white px-10 py-4 rounded-lg text-[20px] hover:bg-[#4d5a39] transition-colors duration-300">
+          Ver invitación
+        </button>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="backgroundMusic" loop>
+      <source src="/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <main>
+      <Home />
+      <Frase />
+      <Fathers />
+      <div class="bg-[url('/bg2.png')] bg-cover bg-center">
+        <DateCounter />
+        <Ubication />
+        <DressCode />
+      </div>
+    </main>
+
+    <script>
+      const modal = document.getElementById('welcomeModal');
+      const closeBtn = document.getElementById('closeModal');
+      const viewInvitationBtn = document.getElementById('viewInvitation');
+      const music = document.getElementById('backgroundMusic') as HTMLAudioElement;
+
+      function closeModalAndPlayMusic() {
+        modal?.classList.add('hidden');
+        music?.play().catch(err => console.log('Error al reproducir música:', err));
+      }
+
+      viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
+    </script>
+  </body>
+</html>
